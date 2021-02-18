@@ -1,7 +1,5 @@
 package br.com.cadastro.model.colaborador;
 
-import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.Embedded;
@@ -13,15 +11,10 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.br.CPF;
-import org.springframework.data.annotation.Id;
-
 
 import br.com.cadastro.model.EntityBase;
 import br.com.cadastro.model.setor.Setor;
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 

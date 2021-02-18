@@ -18,10 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.com.cadastro.service.*;
-import br.com.cadastro.service.colaborador.ColaboradorService;
-import br.com.cadastro.model.*;
 import br.com.cadastro.model.colaborador.Colaborador;
+import br.com.cadastro.service.colaborador.ColaboradorService;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -70,7 +68,7 @@ public class ColaboradorController {
 	}
 	
 	@DeleteMapping
-	public ResponseEntity<?> remover(@RequestBody @Valid Colaborador colaborador) {
+	public ResponseEntity<Colaborador> remover(@RequestBody @Valid Colaborador colaborador) {
 		colaboradorService.remover(colaborador);
 		return ResponseEntity.ok().build();
 	}

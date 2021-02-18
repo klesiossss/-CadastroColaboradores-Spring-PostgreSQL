@@ -4,12 +4,12 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import br.com.cadastro.exceptions.BusinessException;
+import br.com.cadastro.exceptions.DuplicatedResourceException;
+import br.com.cadastro.exceptions.ResourceNotFoundException;
 import br.com.cadastro.model.colaborador.Colaborador;
 import br.com.cadastro.repository.colaborador.ColaboradorRepository;
 import br.com.cadastro.service.ServiceBase;
-import br.com.cadastro.exceptions.*;
-
-import br.com.cadastro.service.setor.*;
 
 
 

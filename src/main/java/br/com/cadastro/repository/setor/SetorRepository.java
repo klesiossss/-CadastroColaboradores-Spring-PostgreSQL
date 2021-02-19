@@ -10,6 +10,7 @@ import br.com.cadastro.repository.RepositoryBase;
 
 public interface SetorRepository extends RepositoryBase<Setor> {
 	Optional<Setor> findById(Long id);
+	Optional<Setor>findByNameIgnoreCase(String name);
 	List<Setor> findByNameContainingIgnoreCase(String name);
 
 

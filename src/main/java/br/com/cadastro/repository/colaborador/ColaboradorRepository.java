@@ -11,7 +11,7 @@ import br.com.cadastro.repository.RepositoryBase;
 public interface ColaboradorRepository extends RepositoryBase<Colaborador> {
 	Optional<Colaborador> findById(Long id);
 	Optional<Colaborador> findByCpf(String cpf);
-	List<Colaborador> findByNomeContainingIgnoreCase(String nome);
-	List<Colaborador> findBySetorId(String name, Long cursoId);
+	List<Colaborador> findByNameContainingIgnoreCase(String name);
+	List<Colaborador> findBySetorId(Long cursoId);
 
 }

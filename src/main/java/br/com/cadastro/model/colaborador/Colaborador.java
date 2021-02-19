@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -24,7 +25,7 @@ public class Colaborador extends EntityBase {
 	
 	
 	@NotBlank(message = "esse campo é mandatório ser preenchido")
-	private String nome;
+	private String name;
 	
 	private int idade;
 	

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -26,6 +27,7 @@ import lombok.AllArgsConstructor;
 @RequestMapping("/colaborador")
 @AllArgsConstructor
 public class ColaboradorController {
+	
 	
 	private ColaboradorService colaboradorService;
 	

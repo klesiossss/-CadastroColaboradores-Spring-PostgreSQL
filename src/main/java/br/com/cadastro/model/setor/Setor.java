@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -13,7 +14,7 @@ import br.com.cadastro.model.colaborador.Colaborador;
 import lombok.Getter;
 import lombok.Setter;
 
-
+ 
 @Entity
 @Getter @Setter
 public class Setor extends EntityBase {

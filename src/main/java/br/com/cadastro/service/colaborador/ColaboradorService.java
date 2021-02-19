@@ -59,11 +59,11 @@ public class ColaboradorService extends ServiceBase<Colaborador, ColaboradorRepo
 			if(response.getBlacklist().stream().filter(cpf ->cpf.getCpf().equals(colaborador.getCpf())).count() > 0) throw new ElementFoundInBlackListException();
 				
 			var setorAux = setorRepository.findByNameIgnoreCase(colaborador.getSetor().getName()).orElseThrow(() -> new ResourceNotFoundException()); 
-			long numTotalColaboradores = setorAux.getColaboradores().stream().count();
-			long numMenor18Anos = setorAux.getColaboradores().stream().filter(c-> c.getIdade() < 18).count();
-			long numMaior65Anos = setorAux.getColaboradores().stream().filter(c->c.getIdade()>65).count();	
-			long percentualMenor18Anos = (numMenor18Anos/numTotalColaboradores)*100;
-			long percentualMaior65Anos = (numMaior65Anos/numTotalColaboradores)*100;
+			double numTotalColaboradores = setorAux.getColaboradores().stream().count();
+			double numMenor18Anos = setorAux.getColaboradores().stream().filter(c-> c.getIdade() < 18).count();
+			double numMaior65Anos = setorAux.getColaboradores().stream().filter(c->c.getIdade()>65).count();	
+			double percentualMenor18Anos = (numMenor18Anos/numTotalColaboradores)*100;
+			double percentualMaior65Anos = (numMaior65Anos/numTotalColaboradores)*100;
 			
 			
 			if(colaborador.getIdade()>18 && colaborador.getIdade() < 65) 

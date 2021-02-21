@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -19,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.com.cadastro.model.setor.Setor;
-import br.com.cadastro.service.setor.SetorService;
+import br.com.cadastro.model.Setor;
+import br.com.cadastro.service.SetorService;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -32,7 +31,7 @@ public class SetorController {
 	private SetorService setorService;
 	
 	@GetMapping
-	public ResponseEntity<Page<Setor>> obterTodos(@PageableDefault(sort = "nome", size = 20) Pageable pageable) {
+	public ResponseEntity<Page<Setor>> obterTodos(@PageableDefault(sort = "name", size = 20) Pageable pageable) {
 		var colaborador = setorService.obterTodos(pageable);
 		return ResponseEntity.ok(colaborador);
 	}

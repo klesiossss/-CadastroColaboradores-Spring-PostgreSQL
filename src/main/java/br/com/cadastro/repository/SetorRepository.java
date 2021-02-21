@@ -1,10 +1,9 @@
-package br.com.cadastro.repository.setor;
+package br.com.cadastro.repository;
 
 import java.util.List;
 import java.util.Optional;
 
-import br.com.cadastro.model.setor.Setor;
-import br.com.cadastro.repository.RepositoryBase;
+import br.com.cadastro.model.Setor;
 
 
 

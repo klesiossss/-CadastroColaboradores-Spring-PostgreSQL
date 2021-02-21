@@ -1,12 +1,11 @@
-package br.com.cadastro.service.setor;
+package br.com.cadastro.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import br.com.cadastro.model.setor.Setor;
-import br.com.cadastro.repository.setor.SetorRepository;
-import br.com.cadastro.service.ServiceBase;
+import br.com.cadastro.model.Setor;
+import br.com.cadastro.repository.SetorRepository;
 import br.com.cadastro.exceptions.DuplicatedResourceException;
 import br.com.cadastro.exceptions.BusinessException;
 

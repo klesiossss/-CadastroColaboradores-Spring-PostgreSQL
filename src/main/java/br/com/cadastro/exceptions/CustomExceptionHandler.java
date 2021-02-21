@@ -23,14 +23,23 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 	
 	@Override
 	protected ResponseEntity<Object> handleMissingServletRequestParameter(MissingServletRequestParameterException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-		var error = "O atributo " + ex.getParameterName() + " nÃ£o foi informado";
+		var error = "O atributo " + ex.getParameterName() + " não foi informado";
 		var exception = new ExceptionMessage(error, HttpStatus.BAD_REQUEST, null);		
 	    return new ResponseEntity<Object>(exception, new HttpHeaders(), exception.getStatusCode());
 	}
 	
+	
+	
 	@ExceptionHandler({ ResourceNotFoundException.class })
     public ResponseEntity<Object> handleEntityNotFoundException(ResourceNotFoundException ex, WebRequest request) {
 		var exception = new ExceptionMessage(ex.getMessage(), HttpStatus.NOT_FOUND, null);
+        return handleExceptionInternal(ex, exception, new HttpHeaders(), exception.getStatusCode(), request);
+    }
+	
+	
+	@ExceptionHandler({ ElementFoundInBlackListException.class })
+    public ResponseEntity<Object> handleElementFoundInBlackList(ElementFoundInBlackListException ex, WebRequest request) {
+		var exception = new ExceptionMessage(ex.getMessage(), HttpStatus.BAD_REQUEST, null);
         return handleExceptionInternal(ex, exception, new HttpHeaders(), exception.getStatusCode(), request);
     }
 	
@@ -56,7 +65,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 		var errors = new ArrayList<String>();
 		ex.getBindingResult().getFieldErrors().forEach(field -> errors.add(field.getField() + ": " + field.getDefaultMessage()));
 		ex.getBindingResult().getGlobalErrors().forEach(field -> errors.add(field.getObjectName() + ": " + field.getDefaultMessage()));
-		return new ExceptionMessage("Erro na validaÃ§Ã£o dos dados", HttpStatus.BAD_REQUEST, errors);
+		return new ExceptionMessage("Erro na validação dos dados", HttpStatus.BAD_REQUEST, errors);
     }
 
 }

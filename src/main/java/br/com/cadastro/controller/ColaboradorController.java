@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.com.cadastro.model.colaborador.Colaborador;
-import br.com.cadastro.service.colaborador.ColaboradorService;
+import br.com.cadastro.model.Colaborador;
+import br.com.cadastro.service.ColaboradorService;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -28,7 +28,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class ColaboradorController {
 	
-	
+	@Autowired
 	private ColaboradorService colaboradorService;
 	
 	@GetMapping
@@ -55,13 +55,20 @@ public class ColaboradorController {
 		return ResponseEntity.ok(colaborador);
 	}	
 	
-	
 	@PostMapping
-	public ResponseEntity<Colaborador> salvar(@RequestBody @Valid Colaborador colaborador) {
+	public ResponseEntity<Colaborador> save(@RequestBody @Valid Colaborador colaborador) {
 		var colaboradorSalvo = colaboradorService.salvar(colaborador);
 		var uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(colaboradorSalvo.getId()).toUri();
 		return ResponseEntity.created(uri).body(colaboradorSalvo);
 	}
+	
+	
+	//@PostMapping
+	//public ResponseEntity<Colaborador> salvar(@RequestBody @Valid Colaborador colaborador) {
+		//var colaboradorSalvo = colaboradorService.salvar(colaborador);
+		//var uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(colaboradorSalvo.getId()).toUri();
+		//return ResponseEntity.created(uri).body(colaboradorSalvo);
+	//}
 	
 	@PutMapping
 	public ResponseEntity<Colaborador> editar(@RequestBody @Valid Colaborador colaborador) {
